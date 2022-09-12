@@ -25,7 +25,22 @@ function App() {
       <QuickSort length={length} />
 
       <p className="footer">
-        Made with 💖 by <a href="https://github.com/logolica99">logolic99</a>
+        <a
+          href="https://github.com/logolica99/Algorithm-visualizer"
+          target="_blank"
+          style={{
+            fontWeight: "bold",
+            display: "block",
+
+            marginBlock: 6,
+          }}
+        >
+          Algorithm Visualizer
+        </a>{" "}
+        Made with 💖 by{" "}
+        <a target="_blank" href="https://github.com/logolica99">
+          logolic99
+        </a>
       </p>
     </div>
   );
