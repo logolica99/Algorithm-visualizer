@@ -23,6 +23,10 @@ function App() {
       </div>
 
       <QuickSort length={length} />
+
+      <p className="footer">
+        Made with 💖 by <a href="https://github.com/logolica99">logolic99</a>
+      </p>
     </div>
   );
 }

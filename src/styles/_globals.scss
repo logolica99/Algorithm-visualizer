@@ -17,7 +17,7 @@ h3 {
 }
 .bar {
   width: 100%;
-  background-color: rgb(103, 109, 177);
+  background-color: #676db1;
   margin: 0px 2px;
   display: flex;
   flex-direction: column;
@@ -108,5 +108,17 @@ body {
       /* opacity: 0.7; */
       background-color: rgb(14, 16, 43);
     }
+  }
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  @include breakpoint-down(medium){
+    margin-top: 30px;
+  }
+  > a {
+   
+    color: white;
   }
 }
