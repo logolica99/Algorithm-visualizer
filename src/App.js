@@ -9,12 +9,13 @@ function App() {
   return (
     <div className="App">
       <div className="inputRange">
+        <h3>Change Array Size</h3>
         <Slider
           value={length}
           aria-label="Default"
           valueLabelDisplay="auto"
           min={5}
-          max={50}
+          max={40}
           onChange={(e) => {
             setLength(e.target.value);
           }}

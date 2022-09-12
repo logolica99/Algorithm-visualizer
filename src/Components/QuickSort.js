@@ -4,7 +4,14 @@ export default function QuickSort({ length }) {
   const [numbers, setNumbers] = useState([]);
 
   const [activeNumbers, setActiveNumbers] = useState([]);
+  const [swap1, setSwap1] = useState();
+  const [swap2, setSwap2] = useState();
+  const [acitve, setActive] = useState();
   const [ColorChange, setColorChange] = useState();
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   useEffect(() => {
     resetArray();
@@ -35,6 +42,8 @@ export default function QuickSort({ length }) {
   };
 
   const swap = (i, j, tmpArr) => {
+    setSwap1(i);
+    setSwap2(j);
     let tmp = tmpArr[i];
     tmpArr[i] = tmpArr[j];
     tmpArr[j] = tmp;
@@ -42,7 +51,7 @@ export default function QuickSort({ length }) {
     setNumbers(tmpArr);
   };
 
-  function partition(left, right, tmpArr) {
+  async function partition(left, right, tmpArr) {
     var pivot = tmpArr[Math.floor((right + left) / 2)],
       i = left,
       j = right;
@@ -50,16 +59,23 @@ export default function QuickSort({ length }) {
     while (i <= j) {
       while (tmpArr[i] < pivot) {
         i++;
+        setActive(i);
+        await sleep(100);
       }
       while (tmpArr[j] > pivot) {
         j--;
+        setActive(j);
+        await sleep(100);
       }
       if (i <= j) {
+        // setSwapArr([i, j]);
         swap(i, j, tmpArr);
+        await sleep(100);
 
         i++;
         j--;
       }
+      setActiveNumbers([]);
     }
 
     // console.log(numbers);
@@ -67,10 +83,10 @@ export default function QuickSort({ length }) {
     return i;
   }
 
-  function quickSort(left, right, tmpArr) {
+  async function quickSort(left, right, tmpArr) {
     var index;
 
-    index = partition(left, right, tmpArr);
+    index = await partition(left, right, tmpArr);
 
     if (left < index - 1) {
       quickSort(left, index - 1, tmpArr);
@@ -78,10 +94,20 @@ export default function QuickSort({ length }) {
     if (index < right) {
       quickSort(index, right, tmpArr);
     }
+    setActive(Infinity);
+    setSwap1(Infinity);
+    setSwap2(Infinity);
   }
 
   return (
     <div>
+      <button
+        onClick={() => {
+          resetArray();
+        }}
+      >
+        Generate New Array
+      </button>
       <button
         onClick={() => {
           let tmpArr = [];
@@ -92,7 +118,7 @@ export default function QuickSort({ length }) {
           quickSort(0, numbers.length - 1, tmpArr);
         }}
       >
-        Sort me
+        Sort Me
       </button>
       {/* <button
         onClick={() => {
@@ -103,12 +129,16 @@ export default function QuickSort({ length }) {
       </button> */}
       <div className="allBars">
         {numbers.map((val, index) => (
-          <div
-            style={{ height: `${val * 5}px` }}
-            // className="bar"
-            className={`bar ${index in activeNumbers ? "active" : ""}`}
-            key={Math.random()}
-          ></div>
+          <div className="completeBar" key={Math.random()}>
+            {/* <p> {val}</p> */}
+            <div
+              style={{ height: `${val * 5}px` }}
+              // className="bar"
+              className={`bar ${
+                index == swap1 || index == swap2 ? "active" : ""
+              }  ${index == acitve ? "active1" : ""}`}
+            ></div>
+          </div>
         ))}
       </div>
     </div>
