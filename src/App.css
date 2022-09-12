@@ -1,7 +1,7 @@
 body {
   font-family: "Raleway", sans-serif;
 }
-h3{
+h3 {
   text-align: center;
 }
 .completeBar {
@@ -70,6 +70,7 @@ button {
   font-family: "Raleway", sans-serif;
   cursor: pointer;
   margin-left: 20px;
+  margin-top: 20px;
   border-radius: 5px;
   transition: all 200ms ease-in-out;
 }
@@ -80,6 +81,6 @@ button:hover {
 
 @media (max-width: 800px) {
   .inputRange {
-    width: 40vw;
+    width: 60vw;
   }
 }

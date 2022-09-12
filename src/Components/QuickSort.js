@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 export default function QuickSort({ length }) {
   const [numbers, setNumbers] = useState([]);
 
-  const [activeNumbers, setActiveNumbers] = useState([]);
   const [swap1, setSwap1] = useState();
   const [swap2, setSwap2] = useState();
   const [acitve, setActive] = useState();
-  const [ColorChange, setColorChange] = useState();
 
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -17,12 +15,6 @@ export default function QuickSort({ length }) {
     resetArray();
   }, [length]);
 
-  useEffect(() => {
-    if (activeNumbers.length > length) {
-      setActiveNumbers([]);
-    }
-  }, [activeNumbers]);
-
   const resetArray = () => {
     const tmp = [];
 
@@ -31,14 +23,6 @@ export default function QuickSort({ length }) {
     }
 
     setNumbers(tmp);
-  };
-
-  const changeBarColor = () => {
-    setColorChange(
-      setInterval(() => {
-        setActiveNumbers((prev) => [...prev, prev.length]);
-      }, 100)
-    );
   };
 
   const swap = (i, j, tmpArr) => {
@@ -75,7 +59,6 @@ export default function QuickSort({ length }) {
         i++;
         j--;
       }
-      setActiveNumbers([]);
     }
 
     // console.log(numbers);
@@ -118,7 +101,7 @@ export default function QuickSort({ length }) {
           quickSort(0, numbers.length - 1, tmpArr);
         }}
       >
-        Sort Me
+        Quick Sort Me!
       </button>
       {/* <button
         onClick={() => {
@@ -135,8 +118,8 @@ export default function QuickSort({ length }) {
               style={{ height: `${val * 5}px` }}
               // className="bar"
               className={`bar ${
-                index == swap1 || index == swap2 ? "active" : ""
-              }  ${index == acitve ? "active1" : ""}`}
+                index === swap1 || index === swap2 ? "active" : ""
+              }  ${index === acitve ? "active1" : ""}`}
             ></div>
           </div>
         ))}
