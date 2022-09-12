@@ -1,2 +1,2 @@
-# [Algorithm Visualizer](https://logolica99.github.io/Algorithm-visualizer/).
+# [Algorithm Visualizer](https://logolica99.github.io/Algorithm-visualizer/)
 
