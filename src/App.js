@@ -3,9 +3,8 @@ import "./App.css";
 import QuickSort from "./Components/QuickSort";
 import Slider from "@mui/material/Slider";
 
-
 function App() {
-  const [length, setLength] = useState(4);
+  const [length, setLength] = useState(15);
 
   return (
     <div className="App">
