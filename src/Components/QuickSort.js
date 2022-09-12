@@ -92,15 +92,15 @@ export default function QuickSort({ length }) {
           quickSort(0, numbers.length - 1, tmpArr);
         }}
       >
-        click me
+        Sort me
       </button>
-      <button
+      {/* <button
         onClick={() => {
           clearInterval(ColorChange);
         }}
       >
         Stop colour changing
-      </button>
+      </button> */}
       <div className="allBars">
         {numbers.map((val, index) => (
           <div
