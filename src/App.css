@@ -1,0 +1,21 @@
+.bar {
+  width: 100%;
+  margin: 0px 2px;
+  display: flex;
+  flex-direction: column;
+  transition: all 300ms ease-in-out;
+}
+.node {
+  height: 13px;
+  width: 100%;
+  background-color: rgb(16, 20, 67);
+}
+
+.allBars {
+  width: 70vw;
+  margin: auto;
+  margin-top: 20vh;
+  display: flex;
+  justify-content: space-evenly;
+  transition: all 300ms ease-in-out;
+}
