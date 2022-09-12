@@ -14,8 +14,14 @@
 .allBars {
   width: 70vw;
   margin: auto;
-  margin-top: 20vh;
+
   display: flex;
   justify-content: space-evenly;
   transition: all 300ms ease-in-out;
+}
+
+.inputRange {
+  width: 70vw;
+  margin: auto;
+  margin-top: 80px;
 }
