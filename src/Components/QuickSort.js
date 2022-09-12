@@ -83,26 +83,28 @@ export default function QuickSort({ length }) {
   }
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          resetArray();
-        }}
-      >
-        Generate New Array
-      </button>
-      <button
-        onClick={() => {
-          let tmpArr = [];
-          for (let number of numbers) {
-            tmpArr.push(number);
-          }
-          // changeBarColor();
-          quickSort(0, numbers.length - 1, tmpArr);
-        }}
-      >
-        Quick Sort Me!
-      </button>
+    <div className="sorting">
+      <div className="sorting-buttons">
+        <button
+          onClick={() => {
+            resetArray();
+          }}
+        >
+          Generate New Array
+        </button>
+        <button
+          onClick={() => {
+            let tmpArr = [];
+            for (let number of numbers) {
+              tmpArr.push(number);
+            }
+            // changeBarColor();
+            quickSort(0, numbers.length - 1, tmpArr);
+          }}
+        >
+          Quick Sort Me!
+        </button>
+      </div>
       {/* <button
         onClick={() => {
           clearInterval(ColorChange);

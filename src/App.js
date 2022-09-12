@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./styles/styles.scss";
 import QuickSort from "./Components/QuickSort";
 import Slider from "@mui/material/Slider";
 
